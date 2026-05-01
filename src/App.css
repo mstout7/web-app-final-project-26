@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ruslan+Display&display=swap');
+
 .App {
   text-align: center;
 }
@@ -32,6 +34,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -53,11 +56,25 @@
 }
 
 @keyframes shakeCocktail {
-  0% { transform: rotate(0deg) translate(0, 0); }
-  25% { transform: rotate(20deg) translate(5px, -5px); }
-  50% { transform: rotate(-20deg) translate(-5px, 5px); }
-  75% { transform: rotate(15deg) translate(2px, -2px); }
-  100% { transform: rotate(0deg) translate(0, 0); }
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  25% {
+    transform: rotate(20deg) translate(5px, -5px);
+  }
+
+  50% {
+    transform: rotate(-20deg) translate(-5px, 5px);
+  }
+
+  75% {
+    transform: rotate(15deg) translate(2px, -2px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
 }
 
 .results-page {
@@ -69,7 +86,8 @@
 
 .flex-container {
   display: flex;
-  gap: 30px; /* Space between the movie and the drink */
+  gap: 30px;
+  /* Space between the movie and the drink */
   justify-content: center;
   align-items: flex-start;
   margin-top: 20px;
@@ -81,24 +99,27 @@
   padding: 0;
   margin: 15px 0;
   font-weight: bold;
-  color: #f0e68c; /* A nice "cocktail gold" color */
+  color: #e18cf0;
+  /* A nice "cocktail gold" color */
 }
 
 .ingredient-list li {
   margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card {
-  flex: 1; /* Makes both cards equal width */
+  flex: 1;
+  /* Makes both cards equal width */
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: navy;
 }
 
-.poster, .drink-img {
+.poster,
+.drink-img {
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -122,10 +143,64 @@
 .question-block p {
   font-weight: bold;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 .question-block label {
   display: block; /* Puts each option on a new line */
   margin-bottom: 5px;
   cursor: pointer;
+  font-size: 15px;
+}
+
+
+
+
+/* Athena's CSS for Quiz */
+.container {
+  background-color: #19081c;
+}
+
+.quiz-header {
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  padding-bottom: 40px;
+}
+
+.quiz-subhead {
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.intro {
+  text-align: center;
+  color: white;
+  font-size: 80px;
+}
+
+.card2 {
+  flex: 1; /* Makes both cards equal width */
+  background: rgba(139, 112, 227, 0.694);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.card2 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card2 label {
+  display: block;  /* Puts each option on a new line */
+  cursor: pointer;
+  font-size: 19px;
 }
