@@ -56,27 +56,47 @@ export const fetchMedia = async (type, genreKey, isMature) => {
       `https://www.googleapis.com/books/v1/volumes?q=subject:${genreData.book}&maxResults=20`
     );
     const data = await res.json();
-    // Return a random book object (includes volumeInfo with title, description, imageLinks)
+
+    // SAFETY CHECK: Make sure 'items' actually exists before checking length
+    if (!data.items || data.items.length === 0) {
+      console.error("No books found or API error:", data);
+      throw new Error("No books found");
+    } // Return a random book object (includes volumeInfo with title, description, imageLinks)
     return data.items[Math.floor(Math.random() * data.items.length)];
   }
 };
 
 // 3. The Cocktail Fetcher
-export const fetchCocktail = async (flavorProfile, isAlcoholic) => {
-  const ingredients = COCKTAIL_MAPPING[flavorProfile];
-  const ingredient = ingredients[Math.floor(Math.random() * ingredients.length)];
+export const fetchCocktail = async (flavor, isAlcoholic) => {
+  const ingredientsArray = COCKTAIL_MAPPING[flavor];
+  const ingredient = ingredientsArray[Math.floor(Math.random() * ingredientsArray.length)];
   
-  const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-  const data = await res.json();
-  const list = data.drinks;
-  
-  // Pick a random drink from the filtered list
-  const randomDrinkSummary = list[Math.floor(Math.random() * list.length)];
+  try {
+    const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    
+    // Safety check: Did we get a 200 OK response?
+    if (!res.ok) throw new Error('Network response was not ok');
 
-  // IMPORTANT: The filter API only gives ID and Image. 
-  // We must fetch the FULL details to get the instructions (description).
-  const detailRes = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${randomDrinkSummary.idDrink}`);
-  const detailData = await detailRes.json();
-  
-  return detailData.drinks[0]; 
+    const text = await res.text(); // Read as text first to see if it's empty
+    if (!text) throw new Error('Empty response from Cocktail API');
+
+    const data = JSON.parse(text); // Manually turn it into JSON
+    
+    const drinks = data.drinks;
+    const randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
+
+    // We need the FULL details (ingredients/instructions), so we fetch by ID
+    const detailRes = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${randomDrink.idDrink}`);
+    const detailData = await detailRes.json();
+    
+    return detailData.drinks[0];
+  } catch (error) {
+    console.error("Cocktail fetch failed:", error);
+    // Return a fallback drink so the app doesn't crash
+    return { 
+      strDrink: "Water", 
+      strInstructions: "Stay hydrated! The cocktail bar is temporarily closed.", 
+      strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/73u11c1665057064.jpg" 
+    };
+  }
 };
