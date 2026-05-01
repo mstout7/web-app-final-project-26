@@ -34,10 +34,12 @@ const Quiz = ({ onComplete, loading }) => {
   // Athena's HTML
   return (
     <div className="container">
+      <div className='mainpage'>
       <h1 className="quiz-header">Welcome to Midnight Menu!</h1>
       <h4 className="quiz-subhead">Find your perfect weekend activity with our easy to take quiz! We will suggest a cocktail, movie, and book for
         your perfect night.</h4>
       <p className="intro">	&or;</p>
+      </div>
 
       <form className="quiz-container" onSubmit={handleSubmit}>
         <h2 className="quiz-header">Customize Your Vibe</h2>
