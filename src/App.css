@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ruslan+Display&display=swap');
 
+@font-face {
+  font-family: 'AliceFaily';
+  src: url('./fonts/Alice\ Fairy\ DEMO.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Candy';
+  src: url('./fonts/Candy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Celestia';
+  src: url('./fonts/Celestia.ttf') format('truetype');
+}
+
+
 .shaking-shaker {
   font-size: 5rem;
   display: inline-block;
@@ -128,7 +144,8 @@
   color: white;
   font-size: 60px;
   padding-bottom: 40px;
-} 
+  font-family: "Celestia";
+}
 
 .quiz-header2 {
   text-align: center;
@@ -143,12 +160,24 @@
   color: white;
   padding: 60px;
   font-size: 20px;
+  font-family: "Outfit", "sans-serif";
+}
+
+.quizBtn {
+  color: white;
+  font-size: 20px;
+  font-family: "Outfit", "sans-serif";
+  cursor: pointer;
 }
 
 .intro {
   text-align: center;
   color: white;
   font-size: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 0px;
+  cursor: pointer;
 }
 
 .card2 {
@@ -161,7 +190,7 @@
   text-align: center;
   font-family: "Outfit", "sans-serif";
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-left: 60px;
   margin-right: 60px;
 }
