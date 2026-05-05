@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-// import { BiDrink } from 'react-icons/bi'; // A cocktail icon
-
 
 const Quiz = ({ onComplete, loading }) => {
-
-
 
   // Store all answers in one state object
   const [answers, setAnswers] = useState({
@@ -33,16 +29,19 @@ const Quiz = ({ onComplete, loading }) => {
 
   // Athena's HTML
   return (
-    <div className="container">
+    <div className="bg">
       <div className='mainpage'>
-      <h1 className="quiz-header">Welcome to Midnight Menu!</h1>
-      <h4 className="quiz-subhead">Find your perfect weekend activity with our easy to take quiz! We will suggest a cocktail, movie, and book for
-        your perfect night.</h4>
-      <p className="intro">	&or;</p>
+        <h1 className="quiz-header">Welcome to Midnight Menu!</h1>
+        <div className='star'>
+          <img src="nbg goldstar.png" alt="Star" />
+          <h4 className="quiz-subhead">Find your perfect weekend activity with our easy to take quiz! <br/> <br/> We will suggest a cocktail, movie, and book for your perfect night.</h4>
+          <img src="nbg goldstar.png" alt="Star" />
+        </div>
+        <p className="intro">	&or;</p>
       </div>
 
       <form className="quiz-container" onSubmit={handleSubmit}>
-        <h2 className="quiz-header">Customize Your Vibe</h2>
+        <h2 className="quiz-header2">Customize Your Vibe</h2>
 
         {/* Question 1: Media Type */}
         <div className="question-block, card2">
@@ -72,8 +71,8 @@ const Quiz = ({ onComplete, loading }) => {
         {/* Question 3: Genre */}
         <div className="question-block, card2">
           <p>3. What kind of genre?</p>
-          <select name="genreKey" onChange={handleChange} value={answers.genreKey}>
-            <option value="murder_mystery">Murder mystery</option>
+          <select className="genre" name="genreKey" onChange={handleChange} value={answers.genreKey}>
+            <option className="genre2" value="murder_mystery">Murder mystery</option>
             <option value="action_adventure">Action/Adventure</option>
             <option value="romance">Romance</option>
             <option value="non_fiction">Non-fiction/documentary</option>
@@ -83,7 +82,7 @@ const Quiz = ({ onComplete, loading }) => {
         </div>
 
         {/* Question 4: Alcohol */}
-        <div className="question-bloc, card2">
+        <div className="question-block, card2">
           <p>4. Are we feeling like a:</p>
           <label>
             <input type="radio" name="isAlcoholic" value="true" onChange={handleChange} /> Alcoholic drink
@@ -116,18 +115,12 @@ const Quiz = ({ onComplete, loading }) => {
           </label>
         </div>
 
-        <button type="submit" disabled={loading} className="submit-btn">
-          {loading ? "Mixing..." : "Get My Recommendation"}
-        </button>
+        <div className="submit-btn">
+          <button type="submit" disabled={loading} className="submit">
+            {loading ? "Mixing..." : "Get My Recommendation"}
+          </button>
+        </div>
       </form>
-
-      <button
-        onClick={handleSubmit}
-        disabled={loading} // Prevent double clicks
-        className="submit-btn"
-      >
-        {/* {loading ? <BiDrink className="spinning-icon" /> : "Generate"} */}
-      </button>
     </div>
   );
 };
