@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BiDrink } from 'react-icons/bi'; // A cocktail icon
+// import { BiDrink } from 'react-icons/bi'; // A cocktail icon
 
 
 const Quiz = ({ onComplete, loading }) => {
