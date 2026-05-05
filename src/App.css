@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ruslan+Display&display=swap');
+
+@font-face {
+  font-family: 'AliceFaily';
+  src: url('./fonts/Alice\ Fairy\ DEMO.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Candy';
+  src: url('./fonts/Candy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Celestia';
+  src: url('./fonts/Celestia.ttf') format('truetype');
+}
+
+/* @font-face {
+  font-family: 'Oaks';
+  src: url('./fonts/') format('truetype');
+} */
+
 .App {
   text-align: center;
 }
@@ -32,6 +54,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -53,11 +76,25 @@
 }
 
 @keyframes shakeCocktail {
-  0% { transform: rotate(0deg) translate(0, 0); }
-  25% { transform: rotate(20deg) translate(5px, -5px); }
-  50% { transform: rotate(-20deg) translate(-5px, 5px); }
-  75% { transform: rotate(15deg) translate(2px, -2px); }
-  100% { transform: rotate(0deg) translate(0, 0); }
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  25% {
+    transform: rotate(20deg) translate(5px, -5px);
+  }
+
+  50% {
+    transform: rotate(-20deg) translate(-5px, 5px);
+  }
+
+  75% {
+    transform: rotate(15deg) translate(2px, -2px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
 }
 
 .results-page {
@@ -69,7 +106,8 @@
 
 .flex-container {
   display: flex;
-  gap: 30px; /* Space between the movie and the drink */
+  gap: 30px;
+  /* Space between the movie and the drink */
   justify-content: center;
   align-items: flex-start;
   margin-top: 20px;
@@ -81,24 +119,27 @@
   padding: 0;
   margin: 15px 0;
   font-weight: bold;
-  color: #f0e68c; /* A nice "cocktail gold" color */
+  color: #e18cf0;
+  /* A nice "cocktail gold" color */
 }
 
 .ingredient-list li {
   margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card {
-  flex: 1; /* Makes both cards equal width */
+  flex: 1;
+  /* Makes both cards equal width */
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: navy;
 }
 
-.poster, .drink-img {
+.poster,
+.drink-img {
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -115,17 +156,229 @@
 }
 
 .question-block {
-  margin-bottom: 25px;
   text-align: left;
 }
 
 .question-block p {
   font-weight: bold;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 .question-block label {
-  display: block; /* Puts each option on a new line */
+  display: block;
+  /* Puts each option on a new line */
   margin-bottom: 5px;
   cursor: pointer;
+  font-size: 15px;
+}
+
+
+/* Athena's CSS for Quiz */
+.container {
+  background-color: #19081c;
+}
+
+.mainpage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-header {
+  font-family: "Candy";
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  letter-spacing: 3px;
+}
+
+.main-subhead {
+  font-family: "Oaks";
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-bottom: 40px;
+}
+
+.intro {
+  text-align: center;
+  color: white;
+  font-size: 80px;
+}
+
+.quiz-header {
+  font-family: "Celestia";
+  text-align: center;
+  color: white;
+  font-size: 80px;
+  padding-top: 50px;
+}
+
+.quiz-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.star img {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+/* Mackenzee's CSS for quiz */
+.card1 {
+  flex: 1;
+  /* Makes both cards equal width */
+  background: rgba(139, 112, 227, 0.694);
+  padding: 180px;
+  margin: 50px;
+  margin-bottom: 350px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+}
+
+.card1 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card1 label {
+  display: block;
+  /* Puts each option on a new line */
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.card2 {
+  flex: 1;
+  background: rgba(139, 112, 227, 0.694);
+  padding: 250px;
+  margin: 50px;
+  margin-bottom: 300px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+}
+
+.card2 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card2 label {
+  display: block;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.card3 {
+  flex: 1;
+  background: rgba(139, 112, 227, 0.694);
+  padding: 200px;
+  margin: 50px;
+  margin-bottom: 350px;
+  margin-top: 0px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+}
+
+.card3 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card3 label {
+  display: block;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.card4 {
+  flex: 1;
+  background: rgba(139, 112, 227, 0.694);
+  padding: 200px;
+  ;
+  margin: 50px;
+  margin-bottom: 310px;
+  margin-top: 0px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+
+}
+
+.card4 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card4 label {
+  display: block;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.card5 {
+  flex: 1;
+  background: rgba(139, 112, 227, 0.694);
+  padding: 150px;
+  margin: 50px;
+  margin-bottom: 150px;
+  margin-top: 0px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+}
+
+.card5 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.card5 label {
+  display: block;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
