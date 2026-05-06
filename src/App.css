@@ -209,6 +209,10 @@
   color: rgb(51, 6, 51);
 }
 
+.card2:hover {
+  background-color: rgb(202, 189, 248);
+}
+
 .submit-btn {
   text-align: center;
   padding-bottom: 30px;
