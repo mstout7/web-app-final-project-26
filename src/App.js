@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react'; // Added useEffect to import
+import React, { useState} from 'react';
 import { fetchMedia, fetchCocktail, GENRE_MAP, COCKTAIL_MAPPING } from './services/api'; // Import mappings
 import Quiz from './components/Quiz';
 import ResultCard from './components/ResultCard';

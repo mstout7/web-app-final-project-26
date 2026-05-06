@@ -1,9 +1,9 @@
 export const GENRE_MAP = {
-  murder_mystery: { movie: 80, book: "mystery+thriller" },
-  action_adventure: { movie: 28, book: "action+adventure" },
+  murder_mystery: { movie: 80, book: "crime-and-punishment" },
+  action_adventure: { movie: 28, book: "fiction" },
   romance: { movie: 10749, book: "romance" },
-  non_fiction: { movie: 99, book: "nonfiction" },
-  fantasy_sci_fi: { movie: 878, book: "science+fiction" }
+  non_fiction: { movie: 99, book: "non-fiction" },
+  fantasy_sci_fi: { movie: 878, book: "fantasy" } 
 };
 
 export const COCKTAIL_MAPPING = {
@@ -42,29 +42,57 @@ export const COCKTAIL_MAPPING = {
 
 // 2. The Media Fetcher
 export const fetchMedia = async (type, genreKey, isMature) => {
-  const genreData = GENRE_MAP[genreKey];
-  
-  if (type === 'movie') {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&with_genres=${genreData.movie}&include_adult=${isMature}`
-    );
-    const data = await res.json();
-    // Return a random movie object (includes poster_path, title, overview)
-    return data.results[Math.floor(Math.random() * data.results.length)];
-  } else {
-    const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=subject:${genreData.book}&maxResults=20`
-    );
-    const data = await res.json();
+  const genreEntry = GENRE_MAP[genreKey];
+  const NYT_KEY = process.env.REACT_APP_NYT_KEY;
+  const TMDB_KEY = process.env.REACT_APP_TMDB_KEY;
 
-    // SAFETY CHECK: Make sure 'items' actually exists before checking length
-    if (!data.items || data.items.length === 0) {
-      console.error("No books found or API error:", data);
-      throw new Error("No books found");
-    } // Return a random book object (includes volumeInfo with title, description, imageLinks)
-    return data.items[Math.floor(Math.random() * data.items.length)];
+  if (type === 'movie') {
+    // ... (Movie fetch remains the same)
+    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&with_genres=${genreEntry.movie}&include_adult=${isMature}`);
+    const data = await res.json();
+    return { type: 'movie', ...data.results[Math.floor(Math.random() * data.results.length)] };
+  } else {
+    
+    // 1. Define the specific target and the generic fallback
+    const specificList = genreEntry.book; 
+    const fallbackList = genreEntry.book === 'non-fiction' ? "combined-print-and-e-book-nonfiction" : "combined-print-and-e-book-fiction";
+
+    try {
+      // 2. Attempt the specific "Vibe" fetch
+      const res = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${specificList}.json?api-key=${NYT_KEY}`);
+      const data = await res.json();
+
+      // If the list exists and has books, return one!
+      if (data.results && data.results.books && data.results.books.length > 0) {
+        return formatBookData(data.results.books[Math.floor(Math.random() * data.results.books.length)]);
+      } 
+      
+      // If we got a response but the list is empty, trigger the fallback manually
+      throw new Error("Specific list empty");
+
+    } catch (error) {
+      console.warn(`Falling back to ${fallbackList} because ${specificList} failed.`);
+
+      // 3. The Fallback Fetch (The reliable weekly charts)
+      const res = await fetch(`https://api.nytimes.com/svc/books/v3/lists/current/${fallbackList}.json?api-key=${NYT_KEY}`);
+      const data = await res.json();
+      const book = data.results.books[Math.floor(Math.random() * data.results.books.length)];
+
+      return formatBookData(book);
+    }
   }
 };
+
+// Helper function to keep the code DRY (Don't Repeat Yourself)
+const formatBookData = (book) => ({
+  type: 'book',
+  title: book.title.toLowerCase().split(' ').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' '),
+  author: book.author,
+  image: book.book_image,
+  description: book.description || "A New York Times Bestseller.",
+  link: book.amazon_product_url,
+  rank: book.rank
+});
 
 // 3. The Cocktail Fetcher
 export const fetchCocktail = async (flavor, isAlcoholic) => {
@@ -96,7 +124,7 @@ export const fetchCocktail = async (flavor, isAlcoholic) => {
     return { 
       strDrink: "Water", 
       strInstructions: "Stay hydrated! The cocktail bar is temporarily closed.", 
-      strDrinkThumb: "https://www.thecocktaildb.com/images/media/drink/73u11c1665057064.jpg" 
+      strDrinkThumb: "https://images.pexels.com/photos/6487129/pexels-photo-6487129.jpeg" 
     };
   }
 };
