@@ -1,3 +1,24 @@
+body{
+  background: linear-gradient(-45deg, #211c5f, #5a0180, #081777);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    margin: 1dvh;
+  }
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* The shaking animation */
 @keyframes shake {
   0% { transform: rotate(0deg); }
@@ -6,6 +27,14 @@
   75% { transform: rotate(10deg); }
   100% { transform: rotate(0deg); }
 }
+
+h1{
+  font-family: "Righteous", "sans-serif";
+  font-size: 3rem;
+  text-align: center;
+  margin: 2dvh 0;
+}
+
 
 .shaking-cocktail {
   font-size: 3rem; /* Make it big */
@@ -64,13 +93,6 @@
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.card {
-  flex: 1; /* Makes both cards equal width */
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
 .poster, .drink-img {
   width: 100%;
   max-width: 300px;
@@ -79,28 +101,70 @@
   object-fit: cover;
 }
 
+/* Mackenzee's CSS for quiz */
+#q1, #q2, #q3, #q4, #q5{
+  scroll-padding-top: 20dvh;
+}
+
+.question-block {
+  flex: 1;
+  /* Makes both cards equal width */
+  background: rgba(139, 112, 227, 0.694);
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  margin: 30dvh auto;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  font-family: "Comfortaa", "sans-serif";
+  letter-spacing: 1px;
+}
+
+.question-block p {
+  font-family: "Comfortaa", "sans-serif";
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.question-block label {
+  display: block;
+  text-align: left;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.next {
+  display: flex;
+  justify-content: space-between;
+}
+
+.next a{
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  background-color: #1e296e;
+  border-radius: 2px;
+  margin-top: 5dvh;
+}
+
+.next a:hover{
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
 /* Mobile responsive: stack them on small screens */
 @media (max-width: 768px) {
   .flex-container {
     flex-direction: column;
     align-items: center;
   }
-}
-
-.question-block {
-  margin-bottom: 25px;
-  text-align: left;
-}
-
-.question-block p {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.question-block label {
-  display: block; /* Puts each option on a new line */
-  margin-bottom: 5px;
-  cursor: pointer;
 }
 
 .poster {
@@ -118,12 +182,18 @@
   margin-top: 20px;
 }
 
-.card {
-  border-radius: 15px;
-  padding: 1.5rem;
-  width: 350px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+.card{
+  background-color: #060e3e;
+  margin: 5dvw;
+  padding: 2dvw;
+  border-radius: 10px;
+}
+
+.info-link{
+  color: mediumpurple;
+}
+.info-link:hover{
+  color: lavender;
 }
 
 .poster {
@@ -147,9 +217,20 @@
   font-size: 0.9rem;
   line-height: 1.4;
 }
-
+.submit-btn {
+  position: relative;
+  top: -20dvh;
+  margin: 30px 6dvw;
+  padding: 15px 40px;
+  background: transparent;
+  border: 2px solid #ff4757;
+  color: #ff4757;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: bold;
+}
 .reset-btn {
-  margin-top: 30px;
+  margin: 30px 6dvw;
   padding: 15px 40px;
   background: transparent;
   border: 2px solid #ff4757;
@@ -159,7 +240,7 @@
   font-weight: bold;
 }
 
-.reset-btn:hover {
+.reset-btn:hover, .submit-btn:hover {
   background: #ff4757;
   color: white;
 }
@@ -182,5 +263,12 @@
   font-weight: bold;
 }
 .tmdb-logo{
-  max-width: 50px;
+  max-width: 100px;
+}
+
+.attribution-item {
+  min-width: 50dvw;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10dvw;
 }
