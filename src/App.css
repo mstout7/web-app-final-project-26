@@ -1,14 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ruslan+Display&display=swap');
+
+@font-face {
+  font-family: 'AliceFaily';
+  src: url('./fonts/Alice\ Fairy\ DEMO.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Candy';
+  src: url('./fonts/Candy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Celestia';
+  src: url('./fonts/Celestia.ttf') format('truetype');
+}
+
+
 /* The shaking animation */
 @keyframes shake {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(15deg); }
-  50% { transform: rotate(-15deg); }
-  75% { transform: rotate(10deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .shaking-cocktail {
-  font-size: 3rem; /* Make it big */
+  font-size: 3rem;
+  /* Make it big */
   display: inline-block;
   animation: shake 0.5s infinite;
 }
@@ -29,11 +62,25 @@
 }
 
 @keyframes shakeCocktail {
-  0% { transform: rotate(0deg) translate(0, 0); }
-  25% { transform: rotate(20deg) translate(5px, -5px); }
-  50% { transform: rotate(-20deg) translate(-5px, 5px); }
-  75% { transform: rotate(15deg) translate(2px, -2px); }
-  100% { transform: rotate(0deg) translate(0, 0); }
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+
+  25% {
+    transform: rotate(20deg) translate(5px, -5px);
+  }
+
+  50% {
+    transform: rotate(-20deg) translate(-5px, 5px);
+  }
+
+  75% {
+    transform: rotate(15deg) translate(2px, -2px);
+  }
+
+  100% {
+    transform: rotate(0deg) translate(0, 0);
+  }
 }
 
 .results-page {
@@ -45,7 +92,8 @@
 
 .flex-container {
   display: flex;
-  gap: 30px; /* Space between the movie and the drink */
+  gap: 30px;
+  /* Space between the movie and the drink */
   justify-content: center;
   align-items: flex-start;
   margin-top: 20px;
@@ -61,17 +109,20 @@
 
 .ingredient-list li {
   margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card {
-  flex: 1; /* Makes both cards equal width */
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: navy;
 }
 
-.poster, .drink-img {
+.poster,
+.drink-img {
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -95,18 +146,22 @@
 .question-block p {
   font-weight: bold;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 .question-block label {
-  display: block; /* Puts each option on a new line */
+  display: block;
   margin-bottom: 5px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .poster {
   width: 100%;
-  height: 400px;      /* Set a fixed height */
-  object-fit: cover;  /* This crops the image to fit the box without stretching it */
+  height: 400px;
+  /* Set a fixed height */
+  object-fit: cover;
+  /* This crops the image to fit the box without stretching it */
   border-radius: 8px;
 }
 
@@ -114,28 +169,32 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
-  flex-wrap: wrap; /* Stacks cards on small screens */
-  margin-top: 20px;
+  flex-wrap: wrap;
+  /* Stacks cards on small screens */
+  margin: 30px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .card {
   border-radius: 15px;
   padding: 1.5rem;
   width: 350px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
 }
 
 .poster {
   width: 100%;
   height: 450px;
-  object-fit: cover; /* Keeps images crisp and aligned */
+  object-fit: cover;
+  /* Keeps images crisp and aligned */
   border-radius: 10px;
   margin: 1rem 0;
 }
 
 .badge {
-  background: #ff4757;
+  background: rgb(68, 52, 120);
   color: white;
   padding: 4px 10px;
   border-radius: 20px;
@@ -143,25 +202,27 @@
   font-weight: bold;
 }
 
-.description, .instructions {
+.description,
+.instructions {
   font-size: 0.9rem;
   line-height: 1.4;
 }
 
 .reset-btn {
-  margin-top: 30px;
+  margin: 30px;
+  margin-left: 50px;
   padding: 15px 40px;
   background: transparent;
-  border: 2px solid #ff4757;
-  color: #ff4757;
+  border: 2px solid rgb(201, 184, 254);
+  color: rgb(202, 189, 248);
   cursor: pointer;
   border-radius: 50px;
   font-weight: bold;
 }
 
 .reset-btn:hover {
-  background: #ff4757;
-  color: white;
+  background: rgb(202, 189, 248);
+  color: rgb(0, 0, 0);
 }
 
 .book-meta {
@@ -181,6 +242,227 @@
   border-radius: 4px;
   font-weight: bold;
 }
-.tmdb-logo{
+
+.tmdb-logo {
   max-width: 50px;
+}
+
+/* Athena's CSS for Quiz */
+.mainpage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.star img {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-header {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  padding-bottom: 40px;
+  font-family: "Celestia";
+}
+
+.quiz-header2 {
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  padding: 40px;
+  padding-bottom: 20px;
+}
+
+.quiz-subhead {
+  text-align: center;
+  color: white;
+  padding: 60px;
+  font-size: 20px;
+  font-family: "Outfit", "sans-serif";
+}
+
+.quizBtn {
+  color: white;
+  font-size: 20px;
+  font-family: "Outfit", "sans-serif";
+  cursor: pointer;
+}
+
+.intro {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.card2 {
+  flex: 1;
+  background: rgb(168, 145, 245);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: rgb(46, 7, 70);
+  text-align: center;
+  font-family: "Outfit", "sans-serif";
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.card2 p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: black;
+}
+
+.card2 label {
+  display: block;
+  cursor: pointer;
+  font-size: 23px;
+  color: rgb(51, 6, 51);
+}
+
+.card2:hover {
+  background-color: rgb(202, 189, 248);
+}
+
+.submit-btn {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.submit {
+  background-color: white;
+  padding: 40px;
+  color: #26082b;
+  font-family: "Outfit", "sans-serif";
+  font-size: 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.submit:hover {
+  background-color: rgb(142, 88, 218);
+  color: white;
+}
+
+.genre {
+  text-align: center;
+  padding: 5px;
+  font-family: "Outfit", "sans-serif";
+  font-size: 23px;
+  color: white;
+  background-color: rgb(142, 88, 218);
+  border-radius: 15px;
+  border: solid 2px #26082b;
+}
+
+.bg {
+  background: linear-gradient(-45deg, rgb(182, 136, 211), rgb(46, 7, 70), rgb(19, 1, 30));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Athena's Css for Result Cards */
+.results-wrapper {
+  background: linear-gradient(-45deg, rgb(182, 136, 211), rgb(46, 7, 70), rgb(19, 1, 30));
+}
+
+.results-container {
+  display: block;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Stacks cards on small screens */
+  margin: 30px;
+  background-color: white;
+}
+
+.attribution-item {
+  color: white;
+  margin: 30px;
+}
+
+body {
+  background: linear-gradient(-45deg, rgb(182, 136, 211), rgb(46, 7, 70), rgb(19, 1, 30));
+}
+
+.container {
+  background-color: white;
+}
+
+@media screen and (min-width: 900px) {
+
+  .star img {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .intro {
+    text-align: center;
+    color: white;
+    font-size: 80px;
+  }
+
+  .quiz-header {
+    text-align: center;
+    color: white;
+    font-size: 100px;
+    padding-bottom: 40px;
+    padding-top: 80px;
+  }
+
+  .quiz-subhead {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding-bottom: 10px;
+    padding: 10px;
+  }
+
+  .star {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
+
+  .results-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Stacks cards on small screens */
+    margin: 30px;
+    background-color: white;
+  }
 }
