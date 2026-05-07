@@ -16,7 +16,6 @@ const ResultCard = ({ data, onReset }) => {
 
   return (
     <div className="results-wrapper">
-      <h1>Midnight Menu</h1>
       <div className="results-container">
         
         {/* LEFT SIDE: THE MEDIA (Book or Movie) */}
@@ -80,7 +79,7 @@ const ResultCard = ({ data, onReset }) => {
         Try Another Vibe
       </button>
 
-      {/* BOTTOM ATTRIBUTION SECTION */}
+       {/* BOTTOM ATTRIBUTION SECTION */}
       <footer className="attribution-footer">
         <div className="attribution-item">
           <img 
